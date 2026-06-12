@@ -227,6 +227,45 @@ section{padding:110px 0}
 .cta-quote:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.25)}
 .cta-banner .l2{font-size:clamp(22px,3vw,32px);font-weight:700;line-height:1.4}
 
+/* ---------- contact ---------- */
+.contact .head{margin-bottom:44px}
+.form-panel{
+  background:#0f1f38;border-radius:22px;padding:48px 52px;color:#fff;
+  box-shadow:0 24px 48px rgba(15,31,56,.35);
+}
+.fp-title{font-size:21px;font-weight:700;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:30px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px}
+.f-field{display:flex;flex-direction:column;gap:9px}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:13.5px;font-weight:700}
+.req{color:var(--accent);margin-left:3px}
+.f-field input,.f-field select,.f-field textarea{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:10px;
+  padding:14px 16px;font-size:15px;color:#fff;font-family:inherit;outline:none;width:100%;
+  transition:border-color .25s,background .25s;
+}
+.f-field input::placeholder,.f-field textarea::placeholder{color:rgba(255,255,255,.35)}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:var(--accent);background:rgba(255,255,255,.08)}
+.f-field select{
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 6l5 5 5-5' fill='none' stroke='%23f5a623' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;background-size:14px;
+}
+.f-field select:invalid{color:rgba(255,255,255,.35)}
+.f-field select option{color:#111}
+.f-field textarea{resize:vertical;min-height:150px}
+.f-agree{display:flex;gap:10px;align-items:flex-start;margin:26px 0 22px;font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.85);cursor:pointer}
+.f-agree input{width:18px;height:18px;margin-top:2px;accent-color:var(--accent);flex:none;cursor:pointer}
+.f-submit{
+  display:block;width:100%;border:none;cursor:pointer;border-radius:12px;
+  background:linear-gradient(180deg,#f6c95e,#e9a52f);color:#13233f;
+  font-size:17px;font-weight:800;font-family:inherit;padding:18px;transition:.25s;
+}
+.f-submit:hover{filter:brightness(1.05);transform:translateY(-2px);box-shadow:0 12px 26px rgba(233,165,47,.35)}
+.form-thanks{display:none;text-align:center;padding:56px 24px}
+.form-thanks .big{font-size:22px;font-weight:700;margin-bottom:10px}
+.form-thanks p.sub{color:rgba(255,255,255,.8);font-size:14.5px}
+
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:54px 0 60px}
 footer .f-inner{display:flex;gap:28px;align-items:flex-start}
@@ -266,6 +305,8 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
   .cta-banner{padding:44px 32px}
   .card{padding:28px 24px}
   .rev-grid{grid-template-columns:repeat(2,1fr)}
+  .f-grid{grid-template-columns:1fr}
+  .form-panel{padding:34px 24px}
 }
 @media (max-width:560px){
   .stats .grid{grid-template-columns:1fr;gap:36px}
@@ -294,7 +335,7 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
         </div>
       </div>
     </nav>
-    <a class="header-cta" href="mailto:jb142056h@gmail.com?subject=%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">ホームページ制作のお問い合わせ</a>
+    <a class="header-cta" href="#contact">ホームページ制作のお問い合わせ</a>
     <button class="hamburger" id="hamburger" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
@@ -305,7 +346,7 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
     <a href="#process">カスタマーセンター</a>
     <a class="sub" href="mailto:jb142056h@gmail.com?subject=%E3%81%94%E8%B3%AA%E5%95%8F">- よくある質問</a>
     <a class="sub" href="mailto:jb142056h@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">- お知らせ</a>
-    <a class="m-cta" href="mailto:jb142056h@gmail.com?subject=%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">ホームページ制作のお問い合わせ</a>
+    <a class="m-cta" href="#contact">ホームページ制作のお問い合わせ</a>
   </div>
 </header>
 
@@ -418,7 +459,7 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
     </div>
   </div>
   <div class="more-btn-wrap reveal">
-    <a class="more-btn" href="mailto:jb142056h@gmail.com?subject=%E5%88%B6%E4%BD%9C%E4%BA%8B%E4%BE%8B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">制作事例のご相談はこちら &gt;</a>
+    <a class="more-btn" href="#contact">制作事例のご相談はこちら &gt;</a>
   </div>
 </section>
 
@@ -511,8 +552,67 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
   <div class="container">
     <div class="cta-banner reveal">
       <p class="l1">大切なホームページだからこそ</p>
-      <a class="cta-quote" href="mailto:jb142056h@gmail.com?subject=%E3%81%8A%E8%A6%8B%E7%A9%8D%E3%82%82%E3%82%8A%E4%BE%9D%E9%A0%BC">無料見積もりはこちら &gt;</a>
+      <a class="cta-quote" href="#contact">無料見積もりはこちら &gt;</a>
       <p class="l2">SPACE LABに、お任せください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="head reveal">
+      <div class="watermark">CONTACT</div>
+      <p class="sec-title">ご相談・お見積もりは無料です<br><b>お問い合わせ</b></p>
+    </div>
+    <form class="form-panel reveal" id="contactForm" action="https://formsubmit.co/jb142056h@gmail.com" method="POST">
+      <p class="fp-title">📝 お問い合わせフォーム</p>
+      <input type="hidden" name="_subject" value="【SPACE LAB】サイトからのお問い合わせ">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://jb142056.github.io/space-lab/?sent=1#contact">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="f-grid">
+        <div class="f-field">
+          <label>お名前<span class="req">*</span></label>
+          <input type="text" name="お名前" placeholder="山田 太郎" required>
+        </div>
+        <div class="f-field">
+          <label>会社名・屋号</label>
+          <input type="text" name="会社名・屋号" placeholder="株式会社〇〇">
+        </div>
+        <div class="f-field">
+          <label>メールアドレス<span class="req">*</span></label>
+          <input type="email" name="メールアドレス" placeholder="example@email.com" required>
+        </div>
+        <div class="f-field">
+          <label>電話番号</label>
+          <input type="tel" name="電話番号" placeholder="090-0000-0000">
+        </div>
+        <div class="f-field full">
+          <label>お問い合わせ種別<span class="req">*</span></label>
+          <select name="お問い合わせ種別" required>
+            <option value="" disabled selected>選択してください</option>
+            <option>ホームページの新規制作</option>
+            <option>既存サイトのリニューアル</option>
+            <option>お見積もりのご依頼</option>
+            <option>その他のご相談</option>
+          </select>
+        </div>
+        <div class="f-field full">
+          <label>お問い合わせ内容<span class="req">*</span></label>
+          <textarea name="お問い合わせ内容" placeholder="ご質問・ご相談内容をご記入ください。どんな些細なことでもお気軽にどうぞ。" required></textarea>
+        </div>
+      </div>
+      <label class="f-agree">
+        <input type="checkbox" required>
+        <span>個人情報の取り扱いに同意します。いただいた情報は、お問い合わせへの返答以外の目的に使用いたしません。</span>
+      </label>
+      <button class="f-submit" type="submit">送信する →</button>
+    </form>
+    <div class="form-panel form-thanks" id="formThanks">
+      <p class="big">🚀 送信ありがとうございました！</p>
+      <p class="sub">お問い合わせを受け付けました。2営業日以内にメールでご連絡いたします。</p>
     </div>
   </div>
 </section>
@@ -663,6 +763,12 @@ track.innerHTML = [...works, ...works].map(w => {
     <div class="pf-body"><h4>${w.cat}</h4><p>${w.name}</p></div>
   </${tag}>`;
 }).join('');
+
+// ---------- contact form sent state ----------
+if (new URLSearchParams(location.search).has('sent')){
+  const f = document.getElementById('contactForm'), t = document.getElementById('formThanks');
+  if (f && t){ f.style.display = 'none'; t.style.display = 'block'; }
+}
 
 // ---------- to top ----------
 document.getElementById('toTop').addEventListener('click', () =>
