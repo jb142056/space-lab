@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPACE LAB.｜企業・スタートアップ専門ホームページ制作</title>
+<meta name="description" content="代表者様は事業に専念してください。ホームページ制作はSPACE LABにお任せください。企画からデザインまで、追加費用なしで責任を持って制作します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1b365d;
+  --navy-dark:#142944;
+  --ink:#111;
+  --gray:#666;
+  --gray-light:#999;
+  --line:#e6e9ef;
+  --wm:#f2f2f2;
+  --line-green:#06c755;
+  --accent:#f5a623;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  font-feature-settings:"palt";
+  color:var(--ink);background:#fff;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .3s,box-shadow .3s;
+}
+header .inner{
+  max-width:1240px;margin:0 auto;padding:0 24px;
+  height:72px;display:flex;align-items:center;gap:40px;
+}
+.logo{display:block;font-weight:800;font-size:19px;letter-spacing:.05em;color:#fff;transition:color .3s}
+.accent-dot{color:var(--accent)}
+nav.gnb{display:flex;gap:8px;margin-left:8px}
+nav.gnb>div{position:relative}
+nav.gnb a.top-link{
+  display:block;padding:24px 16px;font-size:15px;font-weight:600;
+  color:rgba(255,255,255,.92);transition:color .3s;
+}
+nav.gnb a.top-link:hover{color:#fff;opacity:.8}
+.dropdown{
+  position:absolute;top:64px;left:50%;transform:translateX(-50%) translateY(8px);
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 12px 32px rgba(17,24,39,.12);padding:8px;min-width:160px;
+  opacity:0;visibility:hidden;transition:.25s;
+}
+nav.gnb>div:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dropdown a{display:block;padding:10px 14px;border-radius:8px;font-size:14px;color:#333;font-weight:500}
+.dropdown a:hover{background:#f3f5f9;color:var(--navy)}
+.header-cta{
+  margin-left:auto;background:var(--navy);color:#fff;font-size:14px;font-weight:700;
+  padding:11px 22px;border-radius:9999px;transition:.25s;white-space:nowrap;
+}
+.header-cta:hover{background:var(--navy-dark);transform:translateY(-1px)}
+header.scrolled{background:#fff;box-shadow:0 1px 0 var(--line),0 8px 24px rgba(17,24,39,.06)}
+header.scrolled .logo{color:var(--ink)}
+header.scrolled nav.gnb a.top-link{color:#333}
+header.scrolled nav.gnb a.top-link:hover{color:var(--navy);opacity:1}
+.hamburger{display:none;margin-left:auto;background:none;border:none;cursor:pointer;width:40px;height:40px;position:relative;z-index:120}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;margin:5px auto;transition:.3s}
+header.scrolled .hamburger span,header.menu-open .hamburger span{background:var(--ink)}
+header.menu-open .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+header.menu-open .hamburger span:nth-child(2){opacity:0}
+header.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{
+  display:none;position:fixed;inset:0;background:#fff;z-index:110;
+  padding:96px 32px 40px;flex-direction:column;gap:4px;
+}
+.mobile-menu a{font-size:20px;font-weight:700;padding:14px 0;border-bottom:1px solid var(--line)}
+.mobile-menu a.sub{font-size:15px;font-weight:500;color:var(--gray);padding:10px 0 10px 12px;border-bottom:none}
+.mobile-menu .m-cta{margin-top:24px;background:var(--navy);color:#fff;text-align:center;border-radius:9999px;padding:15px;border-bottom:none;font-size:16px}
+header.menu-open .mobile-menu{display:flex}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;height:690px;background:#000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;
+}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero h1{
+  position:relative;z-index:2;color:#fff;user-select:none;-webkit-user-select:none;
+  font-size:clamp(42px,6.5vw,76px);font-weight:700;line-height:1.18;letter-spacing:-.01em;
+  opacity:0;transform:translateY(24px);animation:heroIn 1s .2s ease forwards;
+}
+@keyframes heroIn{to{opacity:1;transform:translateY(0)}}
+.hero-sub{
+  position:relative;z-index:2;color:rgba(255,255,255,.92);
+  font-size:clamp(15px,1.8vw,21px);font-weight:500;letter-spacing:.02em;
+  margin-top:26px;user-select:none;-webkit-user-select:none;
+  opacity:0;transform:translateY(24px);animation:heroIn 1s .45s ease forwards;
+}
+
+/* ---------- common ---------- */
+section{padding:110px 0}
+.watermark{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--wm);letter-spacing:.04em;line-height:1;margin-bottom:18px;user-select:none}
+.sec-title{font-size:clamp(22px,2.6vw,30px);font-weight:400;line-height:1.55;color:#000}
+.sec-title b{font-weight:700}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+.hl{color:var(--navy);font-weight:700;font-style:normal}
+
+/* ---------- statement ---------- */
+.statement{
+  padding:110px 0 70px;text-align:center;background:#fff;
+  border-radius:50px 50px 0 0;margin-top:-50px;position:relative;z-index:5;
+}
+.statement p{font-size:clamp(20px,2.6vw,30px);line-height:1.6}
+.statement .l1{font-weight:500}
+.statement .l2{font-weight:700}
+
+/* ---------- stats ---------- */
+.stats{padding:30px 0 110px}
+.stats .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:center}
+.stat .num{font-size:clamp(36px,4vw,48px);font-weight:800;color:var(--navy);line-height:1.1}
+.stat .name{font-size:18px;font-weight:700;color:var(--navy);margin-top:10px}
+.stat .desc{font-size:13px;color:var(--gray-light);margin-top:6px}
+
+/* ---------- benefit ---------- */
+.benefit{padding-top:40px}
+.benefit .head{margin-bottom:48px}
+.cards{display:flex;flex-direction:column;gap:24px}
+.card{
+  background:#fff;border:1px solid #d8deea;border-radius:16px;
+  padding:34px 40px;box-shadow:0 6px 20px rgba(27,54,93,.06);
+  transition:transform .3s,box-shadow .3s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(27,54,93,.12)}
+.card h3{font-size:clamp(17px,2vw,21px);font-weight:700;color:var(--navy);margin-bottom:14px}
+.card p{font-size:15px;color:#555;line-height:1.9}
+
+/* ---------- difference ---------- */
+.difference .head{text-align:right;margin-bottom:56px}
+.vs-wrap{display:grid;grid-template-columns:1fr 120px 1fr;align-items:stretch;gap:8px}
+.vs-col{border-radius:18px;padding:40px 36px}
+.vs-col h3{font-size:20px;font-weight:800;margin-bottom:22px;text-align:center}
+.vs-col li{font-size:15px;padding:11px 0;display:flex;gap:10px;align-items:baseline}
+.vs-col li::before{content:"✓";font-weight:800;flex:none}
+.vs-col.them{background:#f4f6f9;color:#777}
+.vs-col.them h3{color:#888}
+.vs-col.them li{border-bottom:1px solid #e7eaf0}
+.vs-col.them li:last-child{border-bottom:none}
+.vs-col.us{background:var(--navy);color:#fff;box-shadow:0 18px 40px rgba(27,54,93,.3)}
+.vs-col.us li{border-bottom:1px solid rgba(255,255,255,.16);font-weight:600}
+.vs-col.us li:last-child{border-bottom:none}
+.vs-badge{display:flex;align-items:center;justify-content:center;font-size:clamp(44px,6vw,72px);font-weight:800;color:var(--navy)}
+.slide-l{opacity:0;transform:translateX(-48px);transition:opacity .8s ease,transform .8s ease}
+.slide-r{opacity:0;transform:translateX(48px);transition:opacity .8s ease,transform .8s ease}
+.slide-l.show,.slide-r.show{opacity:1;transform:translateX(0)}
+
+/* ---------- portfolio ---------- */
+.portfolio{background:#fafbfc;overflow:hidden}
+.portfolio .head{margin-bottom:48px}
+.marquee{overflow:hidden;margin:0 -24px;padding:10px 0 26px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.track{display:flex;gap:24px;width:max-content;animation:scrollX 48s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.pf-card{
+  width:300px;flex:none;background:#fff;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;box-shadow:0 4px 14px rgba(17,24,39,.05);transition:transform .3s,box-shadow .3s;
+}
+.pf-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(17,24,39,.12)}
+.pf-thumb{height:210px;background-size:cover;background-position:top center}
+.pf-body{padding:18px 20px 20px}
+.pf-body h4{font-size:16px;font-weight:700;color:var(--ink)}
+.pf-body p{font-size:13px;color:var(--gray-light);margin-top:4px}
+.more-btn-wrap{text-align:center;margin-top:36px}
+.more-btn{
+  display:inline-block;border:1px solid var(--navy);color:var(--navy);
+  font-size:14px;font-weight:700;padding:13px 32px;border-radius:9999px;transition:.25s;
+}
+.more-btn:hover{background:var(--navy);color:#fff}
+
+/* ---------- review ---------- */
+.review{text-align:center}
+.review .head{margin-bottom:44px}
+.carousel{position:relative;max-width:860px;margin:0 auto}
+.slides{overflow:hidden;border-radius:16px}
+.slides-inner{display:flex;transition:transform .5s ease}
+.slide{flex:none;width:100%;display:flex;justify-content:center;align-items:center;background:#f7f8fa;padding:28px}
+.slide img{max-height:480px;width:auto;max-width:100%;object-fit:contain;border-radius:10px}
+.car-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--navy);font-size:16px;cursor:pointer;box-shadow:0 6px 16px rgba(17,24,39,.1);transition:.25s;
+}
+.car-btn:hover{background:var(--navy);color:#fff}
+.car-btn.prev{left:-23px}.car-btn.next{right:-23px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.dot{width:8px;height:8px;border-radius:50%;background:#d6dbe4;cursor:pointer;transition:.25s}
+.dot.on{background:var(--navy);width:22px;border-radius:99px}
+
+/* ---------- process ---------- */
+.process{text-align:center;background:#fafbfc}
+.process .head{margin-bottom:52px}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.step{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 16px 26px;
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.step:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(27,54,93,.1);border-color:#c6d0e0}
+.step img{width:40px;height:40px;margin:0 auto 16px}
+.step h4{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:8px;line-height:1.4}
+.step p{font-size:12.5px;color:var(--gray-light);line-height:1.6}
+
+/* ---------- cta banner ---------- */
+.cta-sec{padding:40px 0 110px}
+.cta-banner{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);
+  border-radius:22px;padding:60px 64px;color:#fff;
+  box-shadow:0 24px 48px rgba(27,54,93,.28);
+}
+.cta-banner .l1{font-size:clamp(17px,2vw,22px);font-weight:500;opacity:.95}
+.cta-quote{
+  display:inline-block;background:#fff;color:var(--navy);font-size:13.5px;font-weight:800;
+  padding:9px 20px;border-radius:9999px;margin:16px 0 18px;transition:.25s;
+}
+.cta-quote:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.25)}
+.cta-banner .l2{font-size:clamp(22px,3vw,32px);font-weight:700;line-height:1.4}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:54px 0 60px}
+footer .f-inner{display:flex;gap:28px;align-items:flex-start}
+.f-logo{font-size:24px;font-weight:800;letter-spacing:.05em;flex:none}
+.f-brand{font-size:16px;font-weight:800;margin-bottom:10px}
+.f-info p{font-size:13px;color:var(--gray-light);line-height:1.9}
+.f-copy{margin-top:10px;font-size:12px;color:#b6bcc8}
+
+/* ---------- floating ---------- */
+.floating{
+  position:fixed;right:20px;bottom:24px;z-index:90;display:flex;flex-direction:column;
+  width:100px;border-radius:10px;overflow:hidden;box-shadow:0 10px 26px rgba(17,24,39,.22);
+}
+.fl-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;width:100%;
+  font-weight:700;cursor:pointer;transition:.25s;border:none;
+}
+.fl-top{background:#fff;color:var(--navy);height:40px;font-size:12.5px}
+.fl-top .arr{font-size:11px;line-height:1}
+.fl-top:hover{background:#eef2f8}
+.fl-line{background:var(--line-green);color:#fff;height:46px;font-size:13px;white-space:nowrap}
+.fl-line:hover{filter:brightness(1.08)}
+.fl-line svg{width:17px;height:17px}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  nav.gnb,.header-cta{display:none}
+  .hamburger{display:block}
+  .hero{height:580px}
+  section{padding:80px 0}
+  .statement{border-radius:28px 28px 0 0;margin-top:-28px}
+  .stats .grid{gap:16px}
+  .vs-wrap{grid-template-columns:1fr;gap:18px}
+  .vs-badge{padding:6px 0}
+  .difference .head{text-align:left}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .cta-banner{padding:44px 32px}
+  .card{padding:28px 24px}
+  .car-btn.prev{left:8px}.car-btn.next{right:8px}
+}
+@media (max-width:560px){
+  .stats .grid{grid-template-columns:1fr;gap:36px}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .pf-card{width:240px}
+  .pf-thumb{height:170px}
+  footer .f-inner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header id="header">
+  <div class="inner">
+    <a class="logo" href="#">SPACE LAB<span class="accent-dot">.</span></a>
+    <nav class="gnb">
+      <div><a class="top-link" href="#benefit">サービス案内</a></div>
+      <div><a class="top-link" href="#portfolio">ポートフォリオ</a></div>
+      <div>
+        <a class="top-link" href="#process">カスタマーセンター</a>
+        <div class="dropdown">
+          <a href="mailto:jb142056h@gmail.com?subject=%E3%81%94%E8%B3%AA%E5%95%8F">よくある質問</a>
+          <a href="mailto:jb142056h@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">お知らせ</a>
+        </div>
+      </div>
+    </nav>
+    <a class="header-cta" href="mailto:jb142056h@gmail.com?subject=%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">ホームページ制作のお問い合わせ</a>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#benefit">サービス案内</a>
+    <a href="#portfolio">ポートフォリオ</a>
+    <a href="#process">カスタマーセンター</a>
+    <a class="sub" href="mailto:jb142056h@gmail.com?subject=%E3%81%94%E8%B3%AA%E5%95%8F">- よくある質問</a>
+    <a class="sub" href="mailto:jb142056h@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">- お知らせ</a>
+    <a class="m-cta" href="mailto:jb142056h@gmail.com?subject=%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">ホームページ制作のお問い合わせ</a>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <canvas id="stars"></canvas>
+  <h1>Shine Your Brand,<br>Drive Your Business</h1>
+  <p class="hero-sub">無限の可能性の宇宙、あなたのアイデアを現実に！</p>
+</div>
+
+<!-- ===== Statement ===== -->
+<section class="statement">
+  <div class="container reveal">
+    <p class="l1">代表者様は事業に専念してください。</p>
+    <p class="l2">ホームページ制作は、SPACE LABにお任せください。</p>
+  </div>
+</section>
+
+<!-- ===== Stats ===== -->
+<section class="stats">
+  <div class="container">
+    <div class="grid">
+      <div class="stat reveal">
+        <div class="num"><span class="counter" data-target="100" data-decimals="0">0</span>%</div>
+        <div class="name">プロジェクト完了率</div>
+        <div class="desc">すべてのプロジェクトを完璧に仕上げます</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="counter" data-target="100" data-decimals="0">0</span>%</div>
+        <div class="name">スケジュール遵守率</div>
+        <div class="desc">徹底したスケジュール管理でお約束を守ります</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="counter" data-target="5.0" data-decimals="1">0.0</span>点</div>
+        <div class="name">顧客満足度</div>
+        <div class="desc">ご満足いただいたお客様のご紹介で成長しています</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Benefit ===== -->
+<section class="benefit" id="benefit">
+  <div class="container">
+    <div class="head reveal">
+      <div class="watermark">BENEFIT</div>
+      <p class="sec-title">規模が大きくなるほど、<b>本質に集中します</b><br>SPACE LABが提案する、<b>ビジネスの第一印象</b></p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <h3>数ある競合他社と同じようなホームページで、勝負しますか？</h3>
+        <p>SPACE LABは、量産型のホームページは作りません。<i class="hl">企業固有のブランド価値</i>を込めて、<i class="hl">お客様の心をつかむ</i>オーダーメイドのホームページを制作します。</p>
+      </div>
+      <div class="card reveal">
+        <h3>クオリティが低かったら？気に入らなかったらどうしよう？</h3>
+        <p>ご安心ください。SPACE LABは<i class="hl">デザイン案のご確認後、ご不満の場合は100%返金保証</i>いたします。それだけの自信があります！<i class="hl">企業の第一印象となる、一生もののホームページ</i>を作りましょう。</p>
+      </div>
+      <div class="card reveal">
+        <h3>ウェブサイト制作、何から始めればいいか分からない？</h3>
+        <p>SPACE LABは<i class="hl">企画からデザインまで</i>、すべての工程をお任せいただけます。何も分からなくても大丈夫です。<i class="hl">追加費用なし</i>で、最初から最後まで責任を持って完成させます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Difference ===== -->
+<section class="difference">
+  <div class="container">
+    <div class="head reveal">
+      <div class="watermark">DIFFERENCE</div>
+      <p class="sec-title">比較すれば、より明確になります<br><b>より速く、より効率的なSPACE LAB</b></p>
+    </div>
+    <div class="vs-wrap">
+      <div class="vs-col them slide-l">
+        <h3>他のエージェンシー</h3>
+        <ul>
+          <li>予測できない追加費用</li>
+          <li>平均2〜3ヶ月の長い制作期間</li>
+          <li>複雑な修正依頼の手続き</li>
+          <li>不明確な作業スケジュール</li>
+          <li>手間のかかるサイト管理</li>
+        </ul>
+      </div>
+      <div class="vs-badge reveal">VS</div>
+      <div class="vs-col us slide-r">
+        <h3>SPACE LAB</h3>
+        <ul>
+          <li>透明な料金体系</li>
+          <li>平均2週間の制作期間</li>
+          <li>スピーディーな修正対応</li>
+          <li>正確なスケジュール遵守</li>
+          <li>カンタンなサイト管理</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Portfolio ===== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="head reveal">
+      <div class="watermark">PORTFOLIO</div>
+      <p class="sec-title">ポートフォリオが証明する<br><b>後悔のない選択</b>、SPACE LAB</p>
+    </div>
+  </div>
+  <div class="marquee reveal">
+    <div class="track" id="pfTrack">
+      <!-- cards injected by JS (duplicated for infinite loop) -->
+    </div>
+  </div>
+  <div class="more-btn-wrap reveal">
+    <a class="more-btn" href="mailto:jb142056h@gmail.com?subject=%E5%88%B6%E4%BD%9C%E4%BA%8B%E4%BE%8B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">制作事例のご相談はこちら &gt;</a>
+  </div>
+</section>
+
+<!-- ===== Review ===== -->
+<section class="review">
+  <div class="container">
+    <div class="head reveal">
+      <div class="watermark">REVIEW</div>
+      <p class="sec-title">多くは語りません<br><b>確かな結果で証明します</b></p>
+    </div>
+    <div class="carousel reveal">
+      <button class="car-btn prev" id="revPrev" aria-label="前へ">&#10094;</button>
+      <div class="slides">
+        <div class="slides-inner" id="revInner">
+          <div class="slide"><img src="https://cdn.imweb.me/thumbnail/20260320/ff34ef1250f56.png" alt="お客様レビュー 1" loading="lazy"></div>
+          <div class="slide"><img src="https://cdn.imweb.me/thumbnail/20260320/3f7421970b33c.png" alt="お客様レビュー 2" loading="lazy"></div>
+        </div>
+      </div>
+      <button class="car-btn next" id="revNext" aria-label="次へ">&#10095;</button>
+      <div class="dots" id="revDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Process ===== -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="head reveal">
+      <div class="watermark">PROCESS</div>
+      <p class="sec-title">シンプルな制作の流れを<br><b>ご案内します</b></p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <img src="https://img.icons8.com/ios/100/1b365d/technical-support.png" alt="ご相談" loading="lazy">
+        <h4>1. ご相談・お問い合わせ</h4>
+        <p>オンライン／チャットにてご相談を承ります</p>
+      </div>
+      <div class="step reveal">
+        <img src="https://img.icons8.com/ios-filled/50/1b365d/layers.png" alt="お見積もり" loading="lazy">
+        <h4>2. お見積もり・お支払い</h4>
+        <p>ご相談後、お見積もりのご案内とお支払いを行います</p>
+      </div>
+      <div class="step reveal">
+        <img src="https://img.icons8.com/ios-filled/50/1b365d/browser-window.png" alt="資料のご提供" loading="lazy">
+        <h4>3. 資料のご提供</h4>
+        <p>制作に必要な資料をお預かりします</p>
+      </div>
+      <div class="step reveal">
+        <img src="https://img.icons8.com/ios-filled/50/1b365d/one-time-password.png" alt="PC版制作" loading="lazy">
+        <h4>4. PC版の制作</h4>
+        <p>PC版のデザイン案を制作し、修正を行います</p>
+      </div>
+      <div class="step reveal">
+        <img src="https://img.icons8.com/ios-filled/50/1b365d/positive-dynamic.png" alt="モバイル版制作" loading="lazy">
+        <h4>5. モバイル版の制作</h4>
+        <p>モバイル向けデザインを実装します</p>
+      </div>
+      <div class="step reveal">
+        <img src="https://img.icons8.com/ios-filled/50/1b365d/city-guide.png" alt="最終チェック" loading="lazy">
+        <h4>6. 最終チェック</h4>
+        <p>最終確認の後、サービスを公開します</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA Banner ===== -->
+<section class="cta-sec">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <p class="l1">大切なホームページだからこそ</p>
+      <a class="cta-quote" href="mailto:jb142056h@gmail.com?subject=%E3%81%8A%E8%A6%8B%E7%A9%8D%E3%82%82%E3%82%8A%E4%BE%9D%E9%A0%BC">無料見積もりはこちら &gt;</a>
+      <p class="l2">SPACE LABに、お任せください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container f-inner">
+    <p class="f-logo">SPACE LAB<span class="accent-dot">.</span></p>
+    <div class="f-info">
+      <p class="f-brand">SPACE LAB（スペースラボ）</p>
+      <p>代表者：HIDEYUKI HIGUCHI｜屋号：SPACE LAB</p>
+      <p>メール：jb142056h@gmail.com</p>
+      <p class="f-copy">Copyright &copy; SPACE LAB All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Floating ===== -->
+<div class="floating">
+  <button class="fl-btn fl-top" id="toTop" aria-label="ページ上部へ"><span class="arr">▲</span>TOP</button>
+  <a class="fl-btn fl-line" href="https://lin.ee/XXXXXXX" target="_blank" rel="noopener" aria-label="LINEで相談">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3C6.48 3 2 6.54 2 10.9c0 2.8 1.86 5.26 4.66 6.65-.2.75-.74 2.73-.85 3.16-.13.53.2.52.41.38.17-.11 2.65-1.8 3.72-2.53.66.1 1.35.15 2.06.15 5.52 0 10-3.55 10-7.91C22 6.54 17.52 3 12 3z"/></svg>
+    LINE
+  </a>
+</div>
+
+<script>
+// ---------- warp starfield hero (canvas) ----------
+// 奥から手前へ流れる3D星空。押しっぱなしでワープ加速（離すと減速）
+(function(){
+  const cv = document.getElementById('stars');
+  const hero = cv.parentElement;
+  const ctx = cv.getContext('2d');
+  const isMobile = ('ontouchstart' in window) || matchMedia('(max-width:768px)').matches;
+  const NUM = isMobile ? 120 : 500;
+  const DEFAULT_SPEED = 2;
+  const BOOST_SPEED = isMobile ? 20 : 40;
+  let W, H, fov, raf = null, running = false;
+  let speed = DEFAULT_SPEED, target = DEFAULT_SPEED;
+  let ox = 0, oy = 0;
+  let stars = [];
+
+  function newStar(s){
+    s.x = (Math.random()*2 - 1) * W;
+    s.y = (Math.random()*2 - 1) * H;
+    s.z = Math.random()*W + 1;
+  }
+  function init(){
+    W = cv.width = cv.offsetWidth;
+    H = cv.height = cv.offsetHeight;
+    fov = W * .8;
+    stars = Array.from({length: NUM}, () => { const s = {}; newStar(s); return s; });
+    ctx.lineCap = 'round';
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, W, H);
+  }
+  function frame(){
+    speed += (target - speed) * .06;
+    ctx.fillStyle = 'rgba(0,0,0,.5)';
+    ctx.fillRect(0, 0, W, H);
+    const cx = W/2 + ox, cy = H/2 + oy;
+    for (const s of stars){
+      const pz = s.z;
+      s.z -= speed;
+      if (s.z < 1){ newStar(s); s.z = W; continue; }
+      const sx = s.x / s.z * fov + cx, sy = s.y / s.z * fov + cy;
+      const px = s.x / pz * fov + cx, py = s.y / pz * fov + cy;
+      if (sx < 0 || sx > W || sy < 0 || sy > H){ newStar(s); s.z = W; continue; }
+      const d = 1 - s.z / W;
+      ctx.strokeStyle = 'rgba(255,255,255,' + (d*.85 + .15).toFixed(3) + ')';
+      ctx.lineWidth = d*2 + .3;
+      ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(sx, sy); ctx.stroke();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  function start(){ if (!running){ running = true; raf = requestAnimationFrame(frame); } }
+  function stop(){ running = false; cancelAnimationFrame(raf); }
+
+  init(); start();
+  window.addEventListener('resize', () => { stop(); init(); start(); });
+
+  hero.addEventListener('mousedown', () => target = BOOST_SPEED);
+  hero.addEventListener('touchstart', () => target = BOOST_SPEED, {passive:true});
+  ['mouseup','mouseleave'].forEach(ev => hero.addEventListener(ev, () => target = DEFAULT_SPEED));
+  hero.addEventListener('touchend', () => target = DEFAULT_SPEED, {passive:true});
+
+  hero.addEventListener('mousemove', e => {
+    const r = cv.getBoundingClientRect();
+    ox = (e.clientX - r.left - W/2) * .25;
+    oy = (e.clientY - r.top - H/2) * .25;
+  });
+
+  new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? start() : stop()), {threshold: 0})
+    .observe(hero);
+})();
+
+// ---------- header scroll state ----------
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll); onScroll();
+
+// ---------- mobile menu ----------
+const hamburger = document.getElementById('hamburger');
+hamburger.addEventListener('click', () => header.classList.toggle('menu-open'));
+document.querySelectorAll('#mobileMenu a').forEach(a =>
+  a.addEventListener('click', () => header.classList.remove('menu-open')));
+
+// ---------- reveal on scroll ----------
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+}), {threshold:.15});
+document.querySelectorAll('.reveal,.slide-l,.slide-r').forEach(el => io.observe(el));
+
+// ---------- counters ----------
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const el = e.target, target = parseFloat(el.dataset.target), dec = +el.dataset.decimals;
+  const t0 = performance.now(), dur = 1600;
+  (function tick(t){
+    const k = Math.min((t - t0) / dur, 1), ease = 1 - Math.pow(1 - k, 3);
+    el.textContent = (target * ease).toFixed(dec);
+    if (k < 1) requestAnimationFrame(tick);
+  })(t0);
+  cio.unobserve(el);
+}), {threshold:.6});
+document.querySelectorAll('.counter').forEach(el => cio.observe(el));
+
+// ---------- portfolio marquee ----------
+const works = [
+  {img:'https://cdn.imweb.me/thumbnail/20250305/de58239e966f9.png', cat:'IT企業ホームページ', name:'マレソフト'},
+  {img:'https://cdn.imweb.me/thumbnail/20250305/bc6596f9ed61e.png', cat:'フード企業ホームページ', name:'青年フード'},
+  {img:'https://cdn.imweb.me/thumbnail/20250305/b7003c72e9ec6.png', cat:'無人ランドリー開業ホームページ', name:'OK365'},
+  {img:'https://cdn.imweb.me/thumbnail/20250115/84b10c99fb29c.png', cat:'企業ホームページ', name:'韓国中小企業協会'},
+  {img:'https://cdn.imweb.me/thumbnail/20250115/f54e2ad10a7a6.png', cat:'自営業ホームページ', name:'葬祭サービス タシマンナギル'},
+  {img:'https://cdn.imweb.me/thumbnail/20250115/057e77a4e7401.png', cat:'エンターテインメントホームページ', name:'チェヨン所属 チャイエンターテインメント'},
+  {img:'https://cdn.imweb.me/thumbnail/20250115/3f99f0b83ab28.png', cat:'ペンションホームページ', name:'トゥトゥステイ'},
+  {img:'https://cdn.imweb.me/thumbnail/20250115/dd54cf6e4eaec.png', cat:'スクールホームページ', name:'狎鴎亭コーディングスクール'},
+  {img:'https://cdn.imweb.me/thumbnail/20250115/df9006b1a4030.png', cat:'建設会社ホームページ', name:'HI EFFECT'}
+];
+const track = document.getElementById('pfTrack');
+track.innerHTML = [...works, ...works].map(w => `
+  <div class="pf-card">
+    <div class="pf-thumb" style="background-image:url('${w.img}')"></div>
+    <div class="pf-body"><h4>${w.cat}</h4><p>${w.name}</p></div>
+  </div>`).join('');
+
+// ---------- review carousel ----------
+(function(){
+  const inner = document.getElementById('revInner');
+  const slides = inner.children.length;
+  const dotsWrap = document.getElementById('revDots');
+  let idx = 0, timer;
+  for (let i = 0; i < slides; i++){
+    const d = document.createElement('span');
+    d.className = 'dot' + (i ? '' : ' on');
+    d.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(d);
+  }
+  const dots = [...dotsWrap.children];
+  function go(i){
+    idx = (i + slides) % slides;
+    inner.style.transform = 'translateX(-' + idx * 100 + '%)';
+    dots.forEach((d, j) => d.classList.toggle('on', j === idx));
+    restart();
+  }
+  function restart(){ clearInterval(timer); timer = setInterval(() => go(idx + 1), 5000); }
+  document.getElementById('revPrev').addEventListener('click', () => go(idx - 1));
+  document.getElementById('revNext').addEventListener('click', () => go(idx + 1));
+  restart();
+})();
+
+// ---------- to top ----------
+document.getElementById('toTop').addEventListener('click', () =>
+  window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>
