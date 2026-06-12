@@ -175,7 +175,7 @@ section[id]{scroll-margin-top:72px}
 .marquee{overflow:hidden;margin:0 -24px;padding:10px 0 26px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
           mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
-.track{display:flex;gap:24px;width:max-content;animation:scrollX 48s linear infinite}
+.track{display:flex;gap:24px;width:max-content;animation:scrollX 30s linear infinite}
 .marquee:hover .track{animation-play-state:paused}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .pf-card{
@@ -824,18 +824,11 @@ document.querySelectorAll('.counter').forEach(el => cio.observe(el));
 // ---------- portfolio marquee ----------
 const works = [
   {img:'img/jpca-v8-top.jpg', cat:'協会・団体ホームページ', name:'日本パーソナルコンディショニング協会', url:'https://jpca-v8-top.vercel.app'},
-  {img:'https://cdn.imweb.me/thumbnail/20250305/de58239e966f9.png', cat:'IT企業ホームページ', name:'マレソフト'},
-  {img:'https://cdn.imweb.me/thumbnail/20250305/bc6596f9ed61e.png', cat:'フード企業ホームページ', name:'青年フード'},
-  {img:'https://cdn.imweb.me/thumbnail/20250305/b7003c72e9ec6.png', cat:'無人ランドリー開業ホームページ', name:'OK365'},
-  {img:'https://cdn.imweb.me/thumbnail/20250115/84b10c99fb29c.png', cat:'企業ホームページ', name:'韓国中小企業協会'},
-  {img:'https://cdn.imweb.me/thumbnail/20250115/f54e2ad10a7a6.png', cat:'自営業ホームページ', name:'葬祭サービス タシマンナギル'},
-  {img:'https://cdn.imweb.me/thumbnail/20250115/057e77a4e7401.png', cat:'エンターテインメントホームページ', name:'チェヨン所属 チャイエンターテインメント'},
-  {img:'https://cdn.imweb.me/thumbnail/20250115/3f99f0b83ab28.png', cat:'ペンションホームページ', name:'トゥトゥステイ'},
-  {img:'https://cdn.imweb.me/thumbnail/20250115/dd54cf6e4eaec.png', cat:'スクールホームページ', name:'狎鴎亭コーディングスクール'},
-  {img:'https://cdn.imweb.me/thumbnail/20250115/df9006b1a4030.png', cat:'建設会社ホームページ', name:'HI EFFECT'}
+  {img:'img/nowb-corp.jpeg', cat:'営業代理店ホームページ', name:'株式会社Nowb', url:'https://my-first-project-khaki-delta.vercel.app/'},
+  {img:'img/nowb-site.jpeg', cat:'コーポレートサイト', name:'株式会社Nowb', url:'https://nowb-site.web.app/'}
 ];
 const track = document.getElementById('pfTrack');
-track.innerHTML = [...works, ...works].map(w => {
+track.innerHTML = [...works, ...works, ...works, ...works].map(w => {
   const tag = w.url ? 'a' : 'div';
   const attr = w.url ? ` href="${w.url}" target="_blank" rel="noopener"` : '';
   return `
