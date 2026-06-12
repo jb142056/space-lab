@@ -43,7 +43,8 @@ header .inner{
   max-width:1240px;margin:0 auto;padding:0 24px;
   height:72px;display:flex;align-items:center;gap:40px;
 }
-.logo{display:block;font-weight:800;font-size:19px;letter-spacing:.05em;color:#fff;transition:color .3s}
+.logo{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:19px;letter-spacing:.05em;color:#fff;transition:color .3s}
+.logo svg{width:25px;height:25px;flex:none}
 .accent-dot{color:var(--accent)}
 nav.gnb{display:flex;gap:8px;margin-left:8px}
 nav.gnb>div{position:relative}
@@ -52,15 +53,21 @@ nav.gnb a.top-link{
   color:rgba(255,255,255,.92);transition:color .3s;
 }
 nav.gnb a.top-link:hover{color:#fff;opacity:.8}
-.dropdown{
-  position:absolute;top:64px;left:50%;transform:translateX(-50%) translateY(8px);
-  background:#fff;border:1px solid var(--line);border-radius:12px;
-  box-shadow:0 12px 32px rgba(17,24,39,.12);padding:8px;min-width:160px;
-  opacity:0;visibility:hidden;transition:.25s;
+/* ---------- intro (big bang) ---------- */
+#intro{
+  position:fixed;inset:0;z-index:300;background:#000;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:opacity .65s ease;
 }
-nav.gnb>div:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.dropdown a{display:block;padding:10px 14px;border-radius:8px;font-size:14px;color:#333;font-weight:500}
-.dropdown a:hover{background:#f3f5f9;color:var(--navy)}
+#intro canvas{position:absolute;inset:0}
+#intro .intro-logo{
+  position:relative;color:#fff;text-align:center;
+  opacity:0;transform:scale(.72);
+  transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);
+}
+#intro .intro-logo svg{width:92px;height:92px;color:#fff;margin:0 auto;display:block}
+#intro .intro-logo p{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:.08em;margin-top:14px}
+#intro.logo-in .intro-logo{opacity:1;transform:scale(1)}
+#intro.fade-out{opacity:0;pointer-events:none}
 .header-cta{
   margin-left:auto;background:var(--navy);color:#fff;font-size:14px;font-weight:700;
   padding:11px 22px;border-radius:9999px;transition:.25s;white-space:nowrap;
@@ -321,20 +328,40 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
 </head>
 <body>
 
+<!-- ===== Intro (Big Bang) ===== -->
+<div id="intro" aria-hidden="true">
+  <canvas id="bang"></canvas>
+  <div class="intro-logo">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <g transform="rotate(45 32 32)" fill="#f5a623">
+        <path fill-rule="evenodd" d="M32 4c8 7 11 17 11 26 0 6-1.7 10.5-3.6 13.4H24.6C22.7 40.5 21 36 21 30 21 21 24 11 32 4Zm0 14.2a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/>
+        <path d="M21 32 12 43.5 21 47Z"/>
+        <path d="M43 32 52 43.5 43 47Z"/>
+        <path d="M21 51.5c2.8 3.6 7 5.8 11 5.8s8.2-2.2 11-5.8c-3.1 1.9-7 2.9-11 2.9s-7.9-1-11-2.9Z"/>
+      </g>
+    </svg>
+    <p>SPACE LAB<span class="accent-dot">.</span></p>
+  </div>
+</div>
+
 <!-- ===== Header ===== -->
 <header id="header">
   <div class="inner">
-    <a class="logo" href="#">SPACE LAB<span class="accent-dot">.</span></a>
+    <a class="logo" href="#">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <g transform="rotate(45 32 32)" fill="#f5a623">
+          <path fill-rule="evenodd" d="M32 4c8 7 11 17 11 26 0 6-1.7 10.5-3.6 13.4H24.6C22.7 40.5 21 36 21 30 21 21 24 11 32 4Zm0 14.2a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/>
+          <path d="M21 32 12 43.5 21 47Z"/>
+          <path d="M43 32 52 43.5 43 47Z"/>
+          <path d="M21 51.5c2.8 3.6 7 5.8 11 5.8s8.2-2.2 11-5.8c-3.1 1.9-7 2.9-11 2.9s-7.9-1-11-2.9Z"/>
+        </g>
+      </svg>
+      <span>SPACE LAB<span class="accent-dot">.</span></span>
+    </a>
     <nav class="gnb">
       <div><a class="top-link" href="#benefit">サービス案内</a></div>
       <div><a class="top-link" href="#portfolio">ポートフォリオ</a></div>
-      <div>
-        <a class="top-link" href="#process">カスタマーセンター</a>
-        <div class="dropdown">
-          <a href="mailto:jb142056h@gmail.com?subject=%E3%81%94%E8%B3%AA%E5%95%8F">よくある質問</a>
-          <a href="mailto:jb142056h@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">お知らせ</a>
-        </div>
-      </div>
+      <div><a class="top-link" href="#voice">お客様の声</a></div>
     </nav>
     <a class="header-cta" href="#contact">ホームページ制作のお問い合わせ</a>
     <button class="hamburger" id="hamburger" aria-label="メニュー">
@@ -344,9 +371,7 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
   <div class="mobile-menu" id="mobileMenu">
     <a href="#benefit">サービス案内</a>
     <a href="#portfolio">ポートフォリオ</a>
-    <a href="#process">カスタマーセンター</a>
-    <a class="sub" href="mailto:jb142056h@gmail.com?subject=%E3%81%94%E8%B3%AA%E5%95%8F">- よくある質問</a>
-    <a class="sub" href="mailto:jb142056h@gmail.com?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">- お知らせ</a>
+    <a href="#voice">お客様の声</a>
     <a class="m-cta" href="#contact">ホームページ制作のお問い合わせ</a>
   </div>
 </header>
@@ -465,7 +490,7 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
 </section>
 
 <!-- ===== Review ===== -->
-<section class="review">
+<section class="review" id="voice">
   <div class="container">
     <div class="head reveal">
       <div class="watermark">REVIEW</div>
@@ -641,6 +666,61 @@ footer .f-inner{display:flex;gap:28px;align-items:flex-start}
 </div>
 
 <script>
+// ---------- intro big bang ----------
+(function(){
+  const intro = document.getElementById('intro');
+  if (!intro) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches){ intro.remove(); return; }
+  const cv = document.getElementById('bang');
+  const ctx = cv.getContext('2d');
+  const W = cv.width = innerWidth, H = cv.height = innerHeight;
+  const cx = W/2, cy = H/2;
+  const N = Math.min(280, Math.floor(W*H/5000));
+  const parts = Array.from({length: N}, () => {
+    const a = Math.random()*Math.PI*2;
+    const sp = Math.pow(Math.random(), 1.6)*15 + 2;
+    return {x:cx, y:cy, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, r:Math.random()*1.8+.4, amber:Math.random()<.25, life:1};
+  });
+  document.body.style.overflow = 'hidden';
+  ctx.fillStyle = '#000'; ctx.fillRect(0,0,W,H);
+  let t0 = null, raf, done = false;
+  function frame(ts){
+    if (t0 === null) t0 = ts;
+    const t = ts - t0;
+    ctx.fillStyle = 'rgba(0,0,0,.28)';
+    ctx.fillRect(0,0,W,H);
+    if (t < 620){
+      const k = 1 - t/620;
+      const rad = 28 + (t/620)*Math.max(W,H)*.55;
+      const g = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      g.addColorStop(0, 'rgba(255,246,228,' + (.95*k).toFixed(3) + ')');
+      g.addColorStop(.4, 'rgba(245,166,35,' + (.38*k).toFixed(3) + ')');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(cx,cy,rad,0,Math.PI*2); ctx.fill();
+    }
+    for (const p of parts){
+      p.x += p.vx; p.y += p.vy;
+      p.vx *= .985; p.vy *= .985; p.life *= .992;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = (p.amber ? 'rgba(245,166,35,' : 'rgba(255,255,255,') + p.life.toFixed(3) + ')';
+      ctx.fill();
+    }
+    if (!done) raf = requestAnimationFrame(frame);
+  }
+  raf = requestAnimationFrame(frame);
+  setTimeout(() => intro.classList.add('logo-in'), 650);
+  function finish(){
+    if (done) return;
+    done = true;
+    intro.classList.add('fade-out');
+    document.body.style.overflow = '';
+    setTimeout(() => { cancelAnimationFrame(raf); intro.remove(); }, 700);
+  }
+  setTimeout(finish, 2500);
+  intro.addEventListener('click', finish);
+})();
+
 // ---------- warp starfield hero (canvas) ----------
 // 奥から手前へ流れる3D星空。押しっぱなしでワープ加速（離すと減速）
 (function(){
