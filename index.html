@@ -642,6 +642,7 @@ document.querySelectorAll('.counter').forEach(el => cio.observe(el));
 
 // ---------- portfolio marquee ----------
 const works = [
+  {img:'img/jpca-v8-top.jpg', cat:'協会・団体ホームページ', name:'日本パーソナルコンディショニング協会', url:'https://jpca-v8-top.vercel.app'},
   {img:'https://cdn.imweb.me/thumbnail/20250305/de58239e966f9.png', cat:'IT企業ホームページ', name:'マレソフト'},
   {img:'https://cdn.imweb.me/thumbnail/20250305/bc6596f9ed61e.png', cat:'フード企業ホームページ', name:'青年フード'},
   {img:'https://cdn.imweb.me/thumbnail/20250305/b7003c72e9ec6.png', cat:'無人ランドリー開業ホームページ', name:'OK365'},
@@ -653,11 +654,15 @@ const works = [
   {img:'https://cdn.imweb.me/thumbnail/20250115/df9006b1a4030.png', cat:'建設会社ホームページ', name:'HI EFFECT'}
 ];
 const track = document.getElementById('pfTrack');
-track.innerHTML = [...works, ...works].map(w => `
-  <div class="pf-card">
+track.innerHTML = [...works, ...works].map(w => {
+  const tag = w.url ? 'a' : 'div';
+  const attr = w.url ? ` href="${w.url}" target="_blank" rel="noopener"` : '';
+  return `
+  <${tag} class="pf-card"${attr}>
     <div class="pf-thumb" style="background-image:url('${w.img}')"></div>
     <div class="pf-body"><h4>${w.cat}</h4><p>${w.name}</p></div>
-  </div>`).join('');
+  </${tag}>`;
+}).join('');
 
 // ---------- to top ----------
 document.getElementById('toTop').addEventListener('click', () =>
